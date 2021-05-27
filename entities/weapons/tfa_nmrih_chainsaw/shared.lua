@@ -62,6 +62,12 @@ SWEP.ViewModelBoneMods = {
 	["Pinky05"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(11.793, 4.677, 11.218) }
 }
 
+function SWEP:Equip(owner)
+	if owner:IsPlayer() then
+		owner:GiveAmmo( 1, "gasoline", true )
+	end
+end
+
 function SWEP:Reload()
 	if !self:OwnerIsValid() then return end
 	if !self.Primary.Motorized then return end

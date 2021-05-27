@@ -95,6 +95,12 @@ SWEP.DrawCrosshair = false
 function SWEP:DrawHUD()
 end
 
+function SWEP:Equip(owner)
+	if owner:IsPlayer() then
+		owner:GiveAmmo( 6, "357", true )
+	end
+end
+
 if SERVER then
 	local function EntityTakeDamage(target, dmg)
 		if !target:IsPlayer() || !dmg:GetAttacker() || !dmg:GetAttacker().GetActiveWeapon || !dmg:GetAttacker():GetActiveWeapon() ||
